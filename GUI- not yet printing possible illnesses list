@@ -1,0 +1,671 @@
+import java.awt.*;
+import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+public class MainFrame extends JFrame implements ActionListener{
+
+	private JPanel contentPane;
+	private JLabel lbl2;
+	public static ArrayList<String> arr = new ArrayList<String>();
+	public ArrayList<String> illnesses;
+	int count;
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public MainFrame() {
+		setTitle("Welcome");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 570, 521);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		String[] pneumonia = {"y" , "y" , "n" , "y" , "y" , "n" , "y" , "y" , "y" ,
+				"n" , "n" , "y" , "y" , "y" , "n" , "y" , "n" , "n"};
+		
+		String[] flu = {"y" , "n" , "n" , "n" , "y" , "n" ,"y" , "y" , "y" , "n" , "y" ,
+				"y" , "y" , "n" , "y" , "y" , "n" , "n"};
+		
+		String[] bronchitis = {"n" , "y" , "n" , "y" , "n" , "n" , "y" , "y" , "n" , "n" ,
+				"n" , "n" , "y" , "y" , "n" , "y" , "n" , "y"};
+		
+		
+		
+		JLabel lbl1 = new JLabel("Which of the following symptoms do you have?");
+		lbl1.setBounds(10, 11, 265, 14);
+		contentPane.add(lbl1);
+
+		
+		lbl2 = new JLabel("");
+		lbl2.setBounds(10, 108, 360, 14);
+		contentPane.add(lbl2);
+		
+		JLabel drycough = new JLabel("Dry Cough");
+		drycough.setBounds(10, 40, 300, 23);
+		contentPane.add(drycough);
+		
+		JButton y1 = new JButton("Yes");
+		y1.setBounds(350 , 40 , 75 , 23);	
+		y1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y1) {
+					y1.setBackground(Color.green);
+					arr.add("y");
+					y1.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y1);
+		
+		JButton n1 = new JButton("No");
+		n1.setBounds(450 , 40 , 75 , 23);
+		n1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n1) {
+					n1.setBackground(Color.green);
+					arr.add("n");
+					n1.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n1);
+		
+		JLabel phlegm = new JLabel("Cough with Phlegm");
+		phlegm.setBounds(10, 70, 300, 23);
+		contentPane.add(phlegm);
+		
+		JButton y2 = new JButton("Yes");
+		y2.setBounds(350 , 70 , 75 , 23);
+		y2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y2) {
+					y2.setBackground(Color.green);
+					arr.add("y");
+					y2.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y2);
+		
+		JButton n2 = new JButton("No");
+		n2.setBounds(450 , 70 , 75 , 23);
+		n2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n2) {
+					n2.setBackground(Color.green);
+					arr.add("n");
+					n2.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n2);
+		
+		JLabel trigger = new JLabel("Triggered or Worsened by Allergens or Irritants");
+		trigger.setBounds(10, 100, 300, 23);
+		contentPane.add(trigger);
+		
+		JButton y3 = new JButton("Yes");
+		y3.setBounds(350 , 100 , 75 , 23);
+		y3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y3) {
+					y3.setBackground(Color.green);
+					arr.add("y");
+					y3.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y3);
+		
+		JButton n3 = new JButton("No");
+		n3.setBounds(450 , 100 , 75 , 23);
+		n3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n3) {
+					n3.setBackground(Color.green);
+					arr.add("n");
+					n3.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n3);
+		
+		JLabel chestPain = new JLabel("Chest Pain or Tightness");
+		chestPain.setBounds(10, 130, 300, 23);
+		contentPane.add(chestPain);
+		
+		JButton y4 = new JButton("Yes");
+		y4.setBounds(350 , 130 , 75 , 23);
+		y4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y4) {
+					y4.setBackground(Color.green);
+					arr.add("y");
+					y4.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y4);
+		
+		JButton n4 = new JButton("No");
+		n4.setBounds(450 , 130 , 75 , 23);
+		n4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n4) {
+					n4.setBackground(Color.green);
+					arr.add("n");
+					n4.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n4);
+		
+		JLabel chills = new JLabel("Chills and/or Sweating");
+		chills.setBounds(10, 160, 300, 23);
+		contentPane.add(chills);
+		
+		JButton y5 = new JButton("Yes");
+		y5.setBounds(350 , 160 , 75 , 23);
+		y5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y5) {
+					y5.setBackground(Color.green);
+					arr.add("y");
+					y5.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y5);
+		
+		JButton n5 = new JButton("No");
+		n5.setBounds(450 , 160 , 75 , 23);
+		n5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n5) {
+					n5.setBackground(Color.green);
+					arr.add("n");
+					n5.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n5);
+		
+		JLabel swallow = new JLabel("Difficult or Painful to Swallow");
+		swallow.setBounds(10, 190, 300, 23);
+		contentPane.add(swallow);
+		
+		JButton y6 = new JButton("Yes");
+		y6.setBounds(350 , 190 , 75 , 23);
+		y6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y6) {
+					y6.setBackground(Color.green);
+					arr.add("y");
+					y6.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y6);
+		
+		JButton n6 = new JButton("No");
+		n6.setBounds(450 , 190 , 75 , 23);
+		n6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n6) {
+					n6.setBackground(Color.green);
+					arr.add("n");
+					n6.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n6);
+		
+		JLabel fatigue = new JLabel("Fatigue");
+		fatigue.setBounds(10, 220, 300, 23);
+		contentPane.add(fatigue);
+		
+		JButton y7 = new JButton("Yes");
+		y7.setBounds(350 , 220 , 75 , 23);
+		y7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y7) {
+					y7.setBackground(Color.green);
+					arr.add("y");
+					y7.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y7);
+		
+		JButton n7 = new JButton("No");
+		n7.setBounds(450 , 220 , 75 , 23);
+		n7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n7) {
+					n7.setBackground(Color.green);
+					arr.add("n");
+					n7.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n7);
+		
+		JLabel fever = new JLabel("Fever");
+		fever.setBounds(10, 250, 300, 23);
+		contentPane.add(fever);
+		
+		JButton y8 = new JButton("Yes");
+		y8.setBounds(350 , 250 , 75 , 23);
+		y8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y8) {
+					y8.setBackground(Color.green);
+					arr.add("y");
+					y8.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y8);
+		
+		JButton n8 = new JButton("No");
+		n8.setBounds(450 , 250 , 75 , 23);
+		n8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n8) {
+					n8.setBackground(Color.green);
+					arr.add("n");
+					n8.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n8);
+		
+		JLabel pain = new JLabel("Headache or Facial Pain");
+		pain.setBounds(10, 280, 300, 23);
+		contentPane.add(pain);
+		
+		JButton y9 = new JButton("Yes");
+		y9.setBounds(350 , 280 , 75 , 23);
+		y9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y9) {
+					y9.setBackground(Color.green);
+					arr.add("y");
+					y9.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y9);
+		
+		JButton n9 = new JButton("No");
+		n9.setBounds(450 , 280 , 75 , 23);
+		n9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n9) {
+					n9.setBackground(Color.green);
+					arr.add("n");
+					n9.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n9);
+		
+		JLabel voice = new JLabel("Hoarse Voice");
+		voice.setBounds(10, 310, 300, 23);
+		contentPane.add(voice);
+		
+		JButton y10 = new JButton("Yes");
+		y10.setBounds(350 , 310 , 75 , 23);
+		y10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y10) {
+					y10.setBackground(Color.green);
+					arr.add("y");
+					y10.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y10);
+		
+		JButton n10 = new JButton("No");
+		n10.setBounds(450 , 310 , 75 , 23);
+		n10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n10) {
+					n10.setBackground(Color.green);
+					arr.add("n");
+					n10.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(n10);
+		
+		JLabel appetite = new JLabel("Loss of Appetite");
+		appetite.setBounds(10, 340, 300, 23);
+		contentPane.add(appetite);
+		
+		JButton y11 = new JButton("Yes");
+		y11.setBounds(350 , 340 , 75 , 23);
+		y11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y11) {
+					y11.setBackground(Color.green);
+					arr.add("y");
+					y11.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y11);
+		
+		JButton n11 = new JButton("No");
+		n11.setBounds(450 , 340 , 75 , 23);
+		n11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n11) {
+					n11.setBackground(Color.green);
+					arr.add("n");
+					n11.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n11);
+		
+		JLabel ache = new JLabel("Muscle Aches");
+		ache.setBounds(10, 370, 300, 23);
+		contentPane.add(ache);
+		
+		JButton y12 = new JButton("Yes");
+		y12.setBounds(350 , 370 , 75 , 23);
+		y12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y12) {
+					y12.setBackground(Color.green);
+					arr.add("y");
+					y12.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y12);
+		
+		JButton n12 = new JButton("No");
+		n12.setBounds(450 , 370 , 75 , 23);
+		n12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n12) {
+					n12.setBackground(Color.green);
+					arr.add("n");
+					n12.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n12);
+		
+		JLabel nose = new JLabel("Runny or Stuffy Nose");
+		nose.setBounds(10, 400, 300, 23);
+		contentPane.add(nose);
+		
+		JButton y13 = new JButton("Yes");
+		y13.setBounds(350 , 400 , 75 , 23);
+		y13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y13) {
+					y13.setBackground(Color.green);
+					arr.add("y");
+					y13.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y13);
+		
+		JButton n13 = new JButton("No");
+		n13.setBounds(450 , 400 , 75 , 23);
+		n13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n13) {
+					n13.setBackground(Color.green);
+					arr.add("n");
+					n13.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n13);
+		
+		JLabel breath = new JLabel("Shortness of Breath");
+		breath.setBounds(10, 430, 300, 23);
+		contentPane.add(breath);
+		
+		JButton y14 = new JButton("Yes");
+		y14.setBounds(350 , 430 , 75 , 23);
+		y14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y14) {
+					y14.setBackground(Color.green);
+					arr.add("y");
+					y14.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y14);
+		
+		JButton n14 = new JButton("No");
+		n14.setBounds(450 , 430 , 75 , 23);
+		contentPane.add(n14);
+		
+		JLabel sneeze = new JLabel("Sneezing");
+		sneeze.setBounds(10, 460, 300, 23);
+		contentPane.add(sneeze);
+		
+		JButton y15 = new JButton("Yes");
+		y15.setBounds(350 , 460 , 75 , 23);
+		y15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y15) {
+					y15.setBackground(Color.green);
+					arr.add("y");
+					y15.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y15);
+		
+		JButton n15 = new JButton("No");
+		n15.setBounds(450 , 460 , 75 , 23);
+		n15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n15) {
+					n15.setBackground(Color.green);
+					arr.add("n");
+					n15.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n15);
+		
+		JLabel throat = new JLabel("Sore Throat");
+		throat.setBounds(10, 490, 300, 23);
+		contentPane.add(throat);
+		
+		JButton y16 = new JButton("Yes");
+		y16.setBounds(350 , 490 , 75 , 23);
+		y16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y16) {
+					y16.setBackground(Color.green);
+					arr.add("y");
+					y16.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y16);
+		
+		JButton n16 = new JButton("No");
+		n16.setBounds(450 , 490 , 75 , 23);
+		n16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n16) {
+					n16.setBackground(Color.green);
+					arr.add("n");
+					n16.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n16);
+		
+		JLabel eyes = new JLabel("Watery or Itchy Eyes");
+		eyes.setBounds(10, 520, 300, 23);
+		contentPane.add(eyes);
+		
+		JButton y17 = new JButton("Yes");
+		y17.setBounds(350 , 520 , 75 , 23);
+		y17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y17) {
+					y17.setBackground(Color.green);
+					arr.add("y");
+					y17.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y17);
+		
+		JButton n17 = new JButton("No");
+		n17.setBounds(450 , 520 , 75 , 23);
+		n17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n17) {
+					n17.setBackground(Color.green);
+					arr.add("n");
+					n17.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n17);
+		
+		JLabel wheeze = new JLabel("Wheezing");
+		wheeze.setBounds(10, 550, 300, 23);
+		contentPane.add(wheeze);
+		
+		JButton y18 = new JButton("Yes");
+		y18.setBounds(350 , 550 , 75 , 23);
+		y18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == y18) {
+					y18.setBackground(Color.green);
+					arr.add("y");
+					y18.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(y18);
+		
+		JButton n18 = new JButton("No");
+		n18.setBounds(450 , 550 , 75 , 23);
+		n18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n18) {
+					n18.setBackground(Color.green);
+					arr.add("n");
+					n18.setEnabled(false);
+					}	
+				}
+		});
+		contentPane.add(n18);
+		
+		
+		//Trying to print possible illnesses
+		JLabel possible = new JLabel("");
+		possible.setBounds(700 , 25 , 200 , 50);
+		contentPane.add(possible);
+		
+		JLabel results = new JLabel("");
+		results.setBounds(700 , 40 , 600 , 100);
+		contentPane.add(results);
+
+		JButton done = new JButton("I'm done!");
+		done.setBounds(150 , 620 , 200 , 50);
+		done.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == done) {
+					possible.setText("Your possible illnesses are:");
+					System.out.println();
+					for (int i = 0; i < arr.size(); i++) {
+						if(arr.get(i).equals(pneumonia[i]) && arr.get(i).equals("y")) {
+							count++;
+						}
+						if (count > 5) {
+							illnesses.add("Pneumonia");
+						}
+					}
+					for (int i = 0 ; i < illnesses.size(); i++) {
+						String str = String.join(", ", illnesses);
+						JLabel results = new JLabel(str);
+						results.setBounds(700 , 40 + 40 * i , 600 , 100);
+						contentPane.add(results);
+					}
+				}	
+			}
+		});
+		contentPane.add(done);
+		
+    //code for getting data from the arrays, needs to go in the actionListener of the done button (when you figure out how to print it)
+		for (int i = 0; i < arr.size(); i++) {
+			if(arr.get(i).equals(pneumonia[i])) {
+				count++;
+			}
+			if (count > 5) {
+				illnesses.add("Pneumonia");
+			}
+		}
+		count = 0;
+		for (int i = 0; i < arr.size(); i++) {
+			if(arr.get(i).equals(flu[i])) {
+				count++;
+			}
+			if (count > 5) {
+				illnesses.add("Influenza");
+			}
+		}
+		count = 0;
+		for (int i = 0; i < arr.size(); i++) {
+			if(arr.get(i).equals(bronchitis[i])) {
+				count++;
+			}
+			if (count > 5) {
+				illnesses.add("Bronchitis");
+			}
+		}
+		for(int i = 0; i < arr.size(); i++) {
+			System.out.println(illnesses.get(i));
+		}
+	}
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainFrame frame = new MainFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}
