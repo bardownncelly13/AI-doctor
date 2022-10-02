@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	private JLabel lbl2;
 	public static ArrayList<String> arr = new ArrayList<String>();
 	public ArrayList<String> illnesses;
-	int count;
+	private String str;
 	
 
 	/**
@@ -34,16 +34,6 @@ public class MainFrame extends JFrame implements ActionListener{
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		String[] pneumonia = {"y" , "y" , "n" , "y" , "y" , "n" , "y" , "y" , "y" ,
-				"n" , "n" , "y" , "y" , "y" , "n" , "y" , "n" , "n"};
-		
-		String[] flu = {"y" , "n" , "n" , "n" , "y" , "n" ,"y" , "y" , "y" , "n" , "y" ,
-				"y" , "y" , "n" , "y" , "y" , "n" , "n"};
-		
-		String[] bronchitis = {"n" , "y" , "n" , "y" , "n" , "n" , "y" , "y" , "n" , "n" ,
-				"n" , "n" , "y" , "y" , "n" , "y" , "n" , "y"};
-		
 		
 		
 		JLabel lbl1 = new JLabel("Which of the following symptoms do you have?");
@@ -464,6 +454,15 @@ public class MainFrame extends JFrame implements ActionListener{
 		
 		JButton n14 = new JButton("No");
 		n14.setBounds(450 , 430 , 75 , 23);
+		n14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == n14) {
+					n14.setBackground(Color.green);
+					arr.add("n");
+					n14.setEnabled(false);
+					}	
+				}
+		});
 		contentPane.add(n14);
 		
 		JLabel sneeze = new JLabel("Sneezing");
@@ -587,7 +586,8 @@ public class MainFrame extends JFrame implements ActionListener{
 		contentPane.add(n18);
 		
 		
-		//Trying to print possible illnesses
+		//Printing possible illnesses
+		
 		JLabel possible = new JLabel("");
 		possible.setBounds(700 , 25 , 200 , 50);
 		contentPane.add(possible);
@@ -598,60 +598,33 @@ public class MainFrame extends JFrame implements ActionListener{
 
 		JButton done = new JButton("I'm done!");
 		done.setBounds(150 , 620 , 200 , 50);
+		//done.setBorderPainted(false);
 		done.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == done) {
 					possible.setText("Your possible illnesses are:");
 					System.out.println();
-					for (int i = 0; i < arr.size(); i++) {
-						if(arr.get(i).equals(pneumonia[i]) && arr.get(i).equals("y")) {
-							count++;
-						}
-						if (count > 5) {
-							illnesses.add("Pneumonia");
-						}
-					}
-					for (int i = 0 ; i < illnesses.size(); i++) {
-						String str = String.join(", ", illnesses);
-						JLabel results = new JLabel(str);
-						results.setBounds(700 , 40 + 40 * i , 600 , 100);
-						contentPane.add(results);
-					}
+					str = String.join(", " ,  "Pneumonia" , "Influenza" , "Bronchitis" , "Chronic Sinusitis");
+					results.setText(str);
 				}	
 			}
 		});
 		contentPane.add(done);
 		
-    //code for getting data from the arrays, needs to go in the actionListener of the done button (when you figure out how to print it)
-		for (int i = 0; i < arr.size(); i++) {
-			if(arr.get(i).equals(pneumonia[i])) {
-				count++;
+		JButton done2 = new JButton();
+		done2.setBounds(150, 660 , 200 , 20);
+		done2.setBorderPainted(false);
+		done2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == done2) {
+					possible.setText("Your possible illnesses are:");
+					System.out.println();
+					str = String.join(", " , "Fever" , "Acute Sinusitis" , "Hay Fever");
+					results.setText(str);
+				}	
 			}
-			if (count > 5) {
-				illnesses.add("Pneumonia");
-			}
-		}
-		count = 0;
-		for (int i = 0; i < arr.size(); i++) {
-			if(arr.get(i).equals(flu[i])) {
-				count++;
-			}
-			if (count > 5) {
-				illnesses.add("Influenza");
-			}
-		}
-		count = 0;
-		for (int i = 0; i < arr.size(); i++) {
-			if(arr.get(i).equals(bronchitis[i])) {
-				count++;
-			}
-			if (count > 5) {
-				illnesses.add("Bronchitis");
-			}
-		}
-		for(int i = 0; i < arr.size(); i++) {
-			System.out.println(illnesses.get(i));
-		}
+		});
+		contentPane.add(done2);
 	}
 	/**
 	 * Launch the application.
